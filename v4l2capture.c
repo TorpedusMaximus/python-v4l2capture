@@ -9,6 +9,7 @@
 // purpose, without any conditions, unless such conditions are
 // required by law.
 
+#define PY_SSIZE_T_CLEAN
 #define USE_LIBV4L
 
 #include <Python.h>
@@ -223,7 +224,7 @@ static PyObject *Video_device_set_format(Video_device *self, PyObject *args, PyO
   int yuv420 = 0;
   int fourcc;
   const char *fourcc_str;
-  int fourcc_len = 0;
+  Py_ssize_t fourcc_len = 0;
   static char *kwlist [] = {
     "size_x",
     "size_y",
